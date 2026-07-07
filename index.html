@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成力庚 Li-Keng Cheng — 臺灣科技大學企業管理系</title>
+<meta name="description" content="Li-Keng Cheng, Associate Professor of Business Administration, National Taiwan University of Science and Technology. Research on human-computer interaction and technology marketing.">
+
+<!-- ============================================================
+     成力庚 Li-Keng Cheng · Academic personal site
+     Single file. Deploy to GitHub Pages as index.html.
+     Bilingual: elements with data-en / data-zh swap on toggle.
+     Publications are kept in English in both languages (standard).
+     TODO for you: fill in the real Scholar / ORCID links marked
+     with  <!-- EDIT -->  below.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FCFBF8;
+    --ink:#17191E;
+    --slate:#565D6B;
+    --faint:#8A8F9A;
+    --line:#E6E3DA;
+    --line-soft:#EFEDE6;
+    --accent:#1B6B73;
+    --accent-deep:#12494E;
+    --accent-wash:#EAF1F0;
+
+    --serif:"IBM Plex Serif","Noto Serif TC",Georgia,serif;
+    --sans:"IBM Plex Sans","IBM Plex Sans TC","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+    --measure:44rem;
+    --gutter:clamp(1.25rem,4vw,3rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  html:lang(zh-Hant) body{line-height:1.85;}
+
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-deep);text-decoration:underline;text-underline-offset:2px;}
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;
+    padding:.7rem var(--gutter);
+    background:color-mix(in srgb,var(--paper) 88%,transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .mark{
+    font-family:var(--serif);
+    font-weight:600;font-size:1.02rem;letter-spacing:.01em;
+    white-space:nowrap;
+  }
+  .topbar nav{display:flex;gap:1.4rem;align-items:center;}
+  .topbar nav a{
+    font-size:.82rem;color:var(--slate);letter-spacing:.02em;
+  }
+  .topbar nav a:hover{color:var(--ink);text-decoration:none;}
+  .navlinks{display:none;}
+  @media(min-width:820px){.navlinks{display:flex;}}
+
+  .lang{
+    display:inline-flex;border:1px solid var(--line);border-radius:999px;
+    overflow:hidden;font-family:var(--mono);font-size:.74rem;
+    background:#fff;
+  }
+  .lang button{
+    border:0;background:transparent;cursor:pointer;
+    padding:.34rem .68rem;color:var(--faint);
+    font-family:inherit;font-size:inherit;letter-spacing:.03em;
+    transition:color .18s,background .18s;
+  }
+  .lang button[aria-pressed="true"]{background:var(--accent);color:#fff;}
+
+  /* ---------- shell ---------- */
+  main{padding:0 var(--gutter);}
+  .wrap{max-width:64rem;margin:0 auto;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(3rem,8vw,5.5rem) 0 2.6rem;border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 1.1rem;
+  }
+  .hero h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.6rem,7vw,4.4rem);line-height:1.02;
+    letter-spacing:-.015em;margin:0;
+  }
+  .hero .zhname{
+    font-family:var(--serif);color:var(--slate);font-weight:500;
+    font-size:clamp(1.1rem,3vw,1.5rem);margin:.5rem 0 0;letter-spacing:.04em;
+  }
+  html:lang(zh-Hant) .hero h1{letter-spacing:.02em;font-size:clamp(2.7rem,9vw,4.6rem);}
+  .hero-inner{display:grid;grid-template-columns:1fr;gap:2rem;}
+  @media(min-width:780px){
+    .hero-inner{grid-template-columns:1fr 232px;column-gap:3rem;align-items:start;}
+  }
+  .hero-photo{order:-1;max-width:232px;}
+  @media(min-width:780px){.hero-photo{order:0;position:sticky;top:5rem;margin:0;}}
+  .hero-photo img{
+    width:100%;display:block;border-radius:14px;
+    border:1px solid var(--line);
+    box-shadow:0 1px 0 rgba(0,0,0,.02),0 18px 40px -24px rgba(23,25,30,.35);
+  }
+  .hero-photo figcaption{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
+    color:var(--faint);margin-top:.6rem;text-align:center;
+  }
+  .role{
+    margin:1.4rem 0 0;font-size:1.06rem;color:var(--slate);max-width:var(--measure);
+  }
+  .role strong{color:var(--ink);font-weight:600;}
+  .thesis{
+    font-family:var(--serif);font-style:italic;font-size:1.24rem;line-height:1.5;
+    color:var(--ink);max-width:var(--measure);margin:1.7rem 0 0;
+    padding-left:1.1rem;border-left:2px solid var(--accent);
+  }
+  html:lang(zh-Hant) .thesis{font-style:normal;}
+
+  .meta-grid{
+    display:grid;gap:.55rem 2rem;margin:2.2rem 0 0;
+    grid-template-columns:1fr;max-width:var(--measure);
+  }
+  @media(min-width:560px){.meta-grid{grid-template-columns:1fr 1fr;}}
+  .meta-row{display:flex;gap:.7rem;font-size:.92rem;align-items:baseline;}
+  .meta-row .k{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--faint);white-space:nowrap;
+    min-width:5.2em;padding-top:.15em;
+  }
+  .meta-row .v{color:var(--slate);}
+  .meta-row .v a{word-break:break-all;}
+
+  .links{display:flex;flex-wrap:wrap;gap:.55rem;margin:2rem 0 0;}
+  .chip-link{
+    display:inline-flex;align-items:center;gap:.4rem;
+    border:1px solid var(--line);border-radius:999px;
+    padding:.4rem .9rem;font-size:.83rem;color:var(--ink);
+    background:#fff;transition:border-color .18s,background .18s;
+  }
+  .chip-link:hover{border-color:var(--accent);background:var(--accent-wash);text-decoration:none;}
+  .chip-link .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+  /* ---------- section ---------- */
+  section.block{padding:3.4rem 0;border-bottom:1px solid var(--line);}
+  section.block:last-of-type{border-bottom:0;}
+  .sec-head{
+    display:flex;align-items:baseline;gap:1rem;margin:0 0 2rem;
+  }
+  .sec-num{
+    font-family:var(--mono);font-size:.76rem;color:var(--accent);
+    letter-spacing:.1em;padding-top:.2rem;
+  }
+  .sec-head h2{
+    font-family:var(--serif);font-weight:600;font-size:1.7rem;
+    letter-spacing:-.01em;margin:0;
+  }
+  html:lang(zh-Hant) .sec-head h2{letter-spacing:.04em;}
+  .sec-head .rule{flex:1;height:1px;background:var(--line);align-self:center;}
+
+  .lead{max-width:var(--measure);color:var(--slate);margin:0 0 1.8rem;font-size:1.02rem;}
+
+  /* research chips */
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .4rem;}
+  .tag{
+    font-size:.85rem;padding:.34rem .8rem;border-radius:999px;
+    background:var(--accent-wash);color:var(--accent-deep);
+    border:1px solid #D6E4E2;
+  }
+
+  /* ---------- publication list ---------- */
+  .pubs{list-style:none;margin:0;padding:0;}
+  .pub{
+    display:grid;grid-template-columns:3.2rem 1fr;gap:0 1.2rem;
+    padding:1.15rem 0;border-top:1px solid var(--line-soft);
+  }
+  .pub:first-child{border-top:0;}
+  .pub .yr{
+    font-family:var(--mono);font-size:.82rem;color:var(--faint);
+    padding-top:.15rem;letter-spacing:.02em;
+  }
+  .pub .body{min-width:0;}
+  .pub .t{font-weight:500;color:var(--ink);}
+  .pub .au{color:var(--slate);font-size:.95rem;}
+  .pub .venue{font-family:var(--serif);font-style:italic;color:var(--ink);}
+  .pub .metaline{
+    margin-top:.35rem;display:flex;flex-wrap:wrap;gap:.4rem .5rem;align-items:center;
+    font-size:.78rem;color:var(--faint);
+  }
+  .badge{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;
+    padding:.16rem .5rem;border-radius:4px;background:#F1EFE8;color:var(--slate);
+    border:1px solid var(--line);white-space:nowrap;
+  }
+  .badge.lead{background:var(--accent-wash);color:var(--accent-deep);border-color:#D6E4E2;}
+  .badge.doi a{color:var(--accent);}
+  @media(max-width:520px){
+    .pub{grid-template-columns:1fr;gap:.3rem;}
+    .pub .yr{padding-top:0;}
+  }
+
+  /* ---------- simple lists ---------- */
+  .stack{display:grid;gap:1rem;max-width:var(--measure);}
+  .item{
+    display:grid;grid-template-columns:3.2rem 1fr;gap:0 1.2rem;
+    padding-bottom:1rem;border-bottom:1px solid var(--line-soft);
+  }
+  .item:last-child{border-bottom:0;}
+  .item .yr{font-family:var(--mono);font-size:.82rem;color:var(--faint);padding-top:.1rem;}
+  .item .txt{color:var(--ink);}
+  .item .txt .sub{display:block;color:var(--faint);font-size:.86rem;margin-top:.15rem;}
+  @media(max-width:520px){.item{grid-template-columns:1fr;gap:.2rem;}}
+
+  .courses{display:grid;gap:.9rem;max-width:var(--measure);}
+  .course{
+    padding:1rem 1.15rem;border:1px solid var(--line);border-radius:10px;background:#fff;
+  }
+  .course .cn{font-weight:600;font-family:var(--serif);}
+  .exp{list-style:none;margin:0;padding:0;max-width:var(--measure);}
+  .exp li{
+    padding:.62rem 0;border-bottom:1px solid var(--line-soft);color:var(--slate);
+    display:flex;gap:.7rem;
+  }
+  .exp li:last-child{border-bottom:0;}
+  .exp li::before{content:"—";color:var(--accent);flex:none;}
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:2.8rem var(--gutter) 3.4rem;border-top:1px solid var(--line);
+    background:#FAF8F3;
+  }
+  footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:end;}
+  footer .fname{font-family:var(--serif);font-weight:600;font-size:1.15rem;}
+  footer .fmeta{font-size:.85rem;color:var(--slate);margin-top:.3rem;}
+  footer .copy{font-family:var(--mono);font-size:.72rem;color:var(--faint);letter-spacing:.02em;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  [data-en]{}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="mark" data-en="Li-Keng Cheng" data-zh="成力庚">成力庚</span>
+  <nav>
+    <div class="navlinks">
+      <a href="#about" data-en="Research" data-zh="研究">研究</a>
+      <a href="#pubs" data-en="Publications" data-zh="著作">著作</a>
+      <a href="#grants" data-en="Grants" data-zh="計畫">計畫</a>
+      <a href="#awards" data-en="Awards" data-zh="獲獎">獲獎</a>
+      <a href="#teaching" data-en="Teaching" data-zh="教學">教學</a>
+      <a href="#experience" data-en="Experience" data-zh="經歷">經歷</a>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="btn-zh" aria-pressed="true"  onclick="setLang('zh')">中</button>
+      <button id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+</div>
+
+<main>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+   <div class="hero-inner">
+    <div class="hero-text">
+    <p class="eyebrow" data-en="National Taiwan University of Science and Technology" data-zh="國立臺灣科技大學">國立臺灣科技大學</p>
+    <h1 data-en="Li-Keng Cheng" data-zh="成力庚">成力庚</h1>
+    <p class="zhname" data-en="成力庚" data-zh="Li-Keng Cheng">Li-Keng Cheng</p>
+
+    <p class="role">
+      <strong data-en="Associate Professor" data-zh="副教授">副教授</strong><span data-en=", " data-zh="，">，</span><span data-en="Department of Business Administration" data-zh="企業管理系">企業管理系</span>
+    </p>
+
+    <p class="thesis" data-en="I study how people respond to intelligent machines — virtual influencers, service robots, chatbots, and AI advisors — and what those responses reveal about consumer psychology, trust, and ethics."
+       data-zh="研究人們如何回應智慧型機器——虛擬網紅、服務型機器人、聊天機器人與 AI 顧問——以及這些回應如何反映消費者心理、信任與倫理。">研究人們如何回應智慧型機器——虛擬網紅、服務型機器人、聊天機器人與 AI 顧問——以及這些回應如何反映消費者心理、信任與倫理。</p>
+
+    <div class="meta-grid">
+      <div class="meta-row"><span class="k">Email</span><span class="v"><a href="mailto:lkcheng@mail.ntust.edu.tw">lkcheng@mail.ntust.edu.tw</a></span></div>
+      <div class="meta-row"><span class="k" data-en="Office" data-zh="研究室">研究室</span><span class="v">MA-508-1</span></div>
+      <div class="meta-row"><span class="k" data-en="Lab" data-zh="實驗室">實驗室</span><span class="v" data-en="HCI &amp; Data Science Lab · MA-509-1" data-zh="人機互動與資料科學實驗室 · MA-509-1">人機互動與資料科學實驗室 · MA-509-1</span></div>
+      <div class="meta-row"><span class="k" data-en="Hours" data-zh="晤談">晤談</span><span class="v">Fri 12:00–14:00</span></div>
+      <div class="meta-row"><span class="k" data-en="Phone" data-zh="電話">電話</span><span class="v">+886-2-2730-3710</span></div>
+      <div class="meta-row"><span class="k" data-en="Ph.D." data-zh="學歷">學歷</span><span class="v" data-en="National Chengchi University" data-zh="國立政治大學 企業管理學系 博士">國立政治大學 企業管理學系 博士</span></div>
+    </div>
+
+    <div class="links">
+      <a class="chip-link" href="mailto:lkcheng@mail.ntust.edu.tw"><span class="dot"></span>Email</a>
+      <a class="chip-link" href="https://scholar.google.com.hk/citations?user=WUfhNQQAAAAJ&amp;hl=zh-TW" target="_blank" rel="noopener"><span class="dot"></span>Google Scholar</a>
+      <a class="chip-link" href="https://orcid.org/0000-0001-9742-5782" target="_blank" rel="noopener"><span class="dot"></span>ORCID</a>
+      <a class="chip-link" href="https://ba.ntust.edu.tw/p/412-1098-12074.php?Lang=zh-tw" target="_blank" rel="noopener"><span class="dot"></span><span data-en="Department page" data-zh="系所頁面">系所頁面</span></a>
+    </div>
+    </div><!-- /hero-text -->
+    <figure class="hero-photo">
+      <img src="photo.jpg" alt="Li-Keng Cheng / 成力庚" width="720" height="900">
+      <figcaption data-en="Li-Keng Cheng" data-zh="成力庚">成力庚</figcaption>
+    </figure>
+   </div><!-- /hero-inner -->
+  </header>
+
+  <!-- ABOUT / RESEARCH -->
+  <section class="block reveal" id="about">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 data-en="Research" data-zh="研究">研究</h2>
+      <span class="rule"></span>
+    </div>
+    <p class="lead" data-en="Li-Keng Cheng is an Associate Professor of Business Administration at National Taiwan University of Science and Technology, where he directs the Human-Computer Interaction and Data Science Lab. His work sits at the meeting point of technology marketing and consumer psychology: how anthropomorphism, agency, and machine identity shape trust, attribution, forgiveness, and ethical behavior. His research appears in journals across marketing, information systems, and human-computer interaction, and is supported by multi-year national grants. Alongside his academic work, he advises firms and public agencies on digital transformation, data analytics, and the practical adoption of AI."
+       data-zh="成力庚為國立臺灣科技大學企業管理系副教授，並主持人機互動與資料科學實驗室。研究位於科技行銷與消費者心理的交界：擬人化、代理感與機器身分如何形塑信任、歸因、原諒與倫理行為。研究成果發表於行銷、資訊管理與人機互動等領域期刊，並獲多年期國科會計畫支持。學術工作之外，亦擔任企業與公部門顧問，協助數位轉型、數據分析與 AI 的實務導入。">成力庚為國立臺灣科技大學企業管理系副教授，並主持人機互動與資料科學實驗室。研究位於科技行銷與消費者心理的交界：擬人化、代理感與機器身分如何形塑信任、歸因、原諒與倫理行為。研究成果發表於行銷、資訊管理與人機互動等領域期刊，並獲多年期國科會計畫支持。學術工作之外，亦擔任企業與公部門顧問，協助數位轉型、數據分析與 AI 的實務導入。</p>
+    <div class="tags">
+      <span class="tag" data-en="Human-Computer Interaction" data-zh="人機互動">人機互動</span>
+      <span class="tag" data-en="Technology Marketing" data-zh="科技行銷">科技行銷</span>
+      <span class="tag" data-en="Virtual Influencers" data-zh="虛擬網紅">虛擬網紅</span>
+      <span class="tag" data-en="Service Robots" data-zh="服務型機器人">服務型機器人</span>
+      <span class="tag" data-en="Chatbots &amp; AI Advisors" data-zh="聊天機器人與 AI 顧問">聊天機器人與 AI 顧問</span>
+      <span class="tag" data-en="Consumer Psychology" data-zh="消費者心理">消費者心理</span>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="block reveal" id="pubs">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 data-en="Journal Articles" data-zh="期刊論文">期刊論文</h2>
+      <span class="rule"></span>
+    </div>
+    <ul class="pubs">
+
+      <li class="pub"><span class="yr">2025</span><div class="body">
+        <span class="au">Cheng, L. K., Toung, C. L., &amp; Ho, C. M. </span>
+        <span class="t">The peril of perfection: how consumer power diminishes brand attitudes toward flawless virtual influencers. </span>
+        <span class="venue">International Journal of Advertising</span>, 1–43.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SSCI</span><span class="badge">NSTC 111-2410-H-152-031-MY3</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2025</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">Whether consumers prefer human or robot financial advisors: the moderating effect of self-control and agency–communion orientation. </span>
+        <span class="venue">Behaviour &amp; Information Technology</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">SSCI</span><span class="badge doi"><a href="https://doi.org/10.1080/0144929X.2025.2539278">DOI</a></span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2025</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">Virtual influencer increases unethical consumer behavior due to increased moral disengagement. </span>
+        <span class="venue">International Journal of Human–Computer Interaction</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2025</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Toung, C. L. </span>
+        <span class="t">Virtual influencers: how human-like or animal-like traits shape intention to donate. </span>
+        <span class="venue">Asia Pacific Journal of Marketing and Logistics</span>.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2024</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Huang, H. L. </span>
+        <span class="t">Influence of environmental, social, and governance (ESG) disclosures on consumer brand perceptions and behavioral intentions. </span>
+        <span class="venue">Asia Pacific Journal of Marketing and Logistics</span>.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SSCI</span><span class="badge doi"><a href="https://doi.org/10.1108/APJML-06-2024-0727">DOI</a></span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2024</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">Effect of advertisement focus on donation intention. </span>
+        <span class="venue">Journal of Marketing Communications</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">Scopus</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2024</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Toung, C. L. </span>
+        <span class="t">Consumer reactions to attacks against cherished brands. </span>
+        <span class="venue">Marketing Intelligence &amp; Planning</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2024</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Toung, C. L. </span>
+        <span class="t">Effects of interaction between brand positioning and chatbot conversational style on perceived fit and brand attitudes. </span>
+        <span class="venue">Psychology &amp; Marketing</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2022</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Huang, H. L. </span>
+        <span class="t">Virtual tourism atmospheres: the effects of pleasure, arousal, and dominance on the acceptance of virtual tourism. </span>
+        <span class="venue">Journal of Hospitality and Tourism Management</span>, 53, 143–152.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2022</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">Effects of service robots' anthropomorphism on consumers' attribution toward and forgiveness of service failure. </span>
+        <span class="venue">Journal of Consumer Behaviour</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">SSCI</span><span class="badge">NSTC 111-2410-H-152-031-MY3</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2022</span><div class="body">
+        <span class="au">Huang, H. L., &amp; Cheng, L. K. </span>
+        <span class="t">Predicting intention of residential solar installation: the role of ecological lifestyle, consumer innovativeness, perceived benefit, government incentives, and solar product knowledge. </span>
+        <span class="venue">Energy &amp; Environment</span>.
+        <div class="metaline"><span class="badge">Corresponding</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2022</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">The effects of smartphone assistants' anthropomorphism on consumers' psychological ownership and perceived competence of smartphone assistants. </span>
+        <span class="venue">Journal of Consumer Behaviour</span>.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">SSCI</span><span class="badge">MOST 109-2410-H-152-033-MY2</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au">Cheng, L. K., Huang, H. L., &amp; Yang, S. Y. </span>
+        <span class="t">Attitude toward 5G: the moderating effect of regulatory focus. </span>
+        <span class="venue">Technology in Society</span>.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Toung, C. L. </span>
+        <span class="t">Are celebrities accountable for the misconduct of their fans? </span>
+        <span class="venue">Psychology &amp; Marketing</span>, 39(2), 402–419.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">MOST 109-2410-H-152-033-MY2</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au">Huang, H. L., Cheng, L. K., Sun, P. C., Jiang, Y. S., &amp; Lin, H. H. </span>
+        <span class="t">Relationship among social tactics, job embeddedness, and affective commitment in newcomers: the moderating effect of workplace spirituality. </span>
+        <span class="venue">Journal of Management &amp; Organization</span>.
+        <div class="metaline"><span class="badge">Corresponding</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au">Cheng, L. K., Huang, H. L., &amp; Lai, C. C. </span>
+        <span class="t">Continuance intention in running apps: the moderating effect of relationship norms. </span>
+        <span class="venue">International Journal of Sports Marketing and Sponsorship</span>.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au">Huang, H. L., Cheng, L. K., Sun, P. C., &amp; Chou, S. J. </span>
+        <span class="t">The effects of perceived identity threat and realistic threat on the negative attitudes and usage intentions toward hotel service robots: the moderating effect of the robot's anthropomorphism. </span>
+        <span class="venue">International Journal of Social Robotics</span>.
+        <div class="metaline"><span class="badge">Corresponding</span><span class="badge">SCIE</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2020</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Toung, C. L. </span>
+        <span class="t">More fluency of the mental imagery, more effective? </span>
+        <span class="venue">Journal of Social Marketing</span>, 11(1), 1–24.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2020</span><div class="body">
+        <span class="au">Lin, C. W., Cheng, L. K., &amp; Wu, L. Y. </span>
+        <span class="t">Roles of strategic orientations in radical product innovation. </span>
+        <span class="venue">Marketing Intelligence &amp; Planning</span>, 39(1), 33–47.
+        <div class="metaline"><span class="badge">Corresponding</span><span class="badge">SSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au" data-en="Su, W. C., &amp; Cheng, L. K. " data-zh="蘇威傑、成力庚 ">蘇威傑、成力庚 </span>
+        <span class="t" data-en="Does green product information always increase purchase intention? A moderated-mediation of moral neglect and green awareness. " data-zh="綠色產品資訊一定增加購買意願嗎？以輕忽道德與綠色知曉的調節式中介效果為例。">綠色產品資訊一定增加購買意願嗎？以輕忽道德與綠色知曉的調節式中介效果為例。</span>
+        <span class="venue" data-en="Management Review" data-zh="管理評論">管理評論</span><span>, 40(1).</span>
+        <div class="metaline"><span class="badge">Corresponding</span><span class="badge">TSSCI</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2014</span><div class="body">
+        <span class="au">Cheng, L. K., Chieng, M. H., &amp; Chieng, W. H. </span>
+        <span class="t">Measuring virtual experience in a three-dimensional virtual reality interactive simulator environment: a structural equation modeling approach. </span>
+        <span class="venue">Virtual Reality</span>, 18(3), 173–188.
+        <div class="metaline"><span class="badge lead">First author</span><span class="badge">SCI</span></div>
+      </div></li>
+
+    </ul>
+  </section>
+
+  <!-- CONFERENCE -->
+  <section class="block reveal" id="conf">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 data-en="Conference Papers" data-zh="研討會論文">研討會論文</h2>
+      <span class="rule"></span>
+    </div>
+    <ul class="pubs">
+
+      <li class="pub"><span class="yr">2026</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">Man vs. machine: how fear of judgment shapes our willingness to self-gift. </span>
+        <span class="venue">2026 AMS World Marketing Congress</span>, Vilnius, Lithuania.
+        <div class="metaline"><span class="badge lead">First author</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2023</span><div class="body">
+        <span class="au">Cheng, L. K. </span>
+        <span class="t">Should I choose a human financial advisor or a robo-advisor? </span>
+        <span class="venue">2023 AMA Summer Academic Conference</span>, San Francisco.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span><span class="badge">NSTC 111-2410-H-152-031-MY3</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2023</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Toung, C. L. </span>
+        <span class="t">When "my own" brand is attacked. </span>
+        <span class="venue">2023 AMA Winter Academic Conference</span>, Nashville, TN.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2021</span><div class="body">
+        <span class="au">Cheng, L. K., Toung, C. L., Li, S. Y., &amp; Chen, P. T. </span>
+        <span class="t">Can celebrity be liable for fans' misbehavior? </span>
+        <span class="venue">2021 AMA Summer Academic Conference</span>, Virtual.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2020</span><div class="body">
+        <span class="au">Cheng, L. K., Liao, H. W., &amp; Chen, P. Y. </span>
+        <span class="t">Service robot's anthropomorphism levels and the attribution effect in service failure. </span>
+        <span class="venue">2021 AMA Winter Academic Conference</span>, Virtual.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2019</span><div class="body">
+        <span class="au">Cheng, L. K., Toung, C. L., Huang, H. L., Lin, Y. S., Liao, H. W., &amp; Chen, P. Y. </span>
+        <span class="t">The interaction effects between fear appeals and consideration of future consequences on imagery fluency and purchase intention. </span>
+        <span class="venue">2020 AMS World Marketing Congress</span>, University of Queensland.
+        <div class="metaline"><span class="badge lead">First author</span></div>
+      </div></li>
+
+      <li class="pub"><span class="yr">2019</span><div class="body">
+        <span class="au">Cheng, L. K., &amp; Lin, Y. S. </span>
+        <span class="t">Effect of nostalgic advertising on psychological ownership and purchase intention: moderating effect of consumers' subjective knowledge. </span>
+        <span class="venue">2020 Winter AMA</span>, San Diego, CA.
+        <div class="metaline"><span class="badge lead">First / Corresponding</span></div>
+      </div></li>
+
+    </ul>
+  </section>
+
+  <!-- GRANTS -->
+  <section class="block reveal" id="grants">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 data-en="Research Grants" data-zh="研究計畫">研究計畫</h2>
+      <span class="rule"></span>
+    </div>
+    <p class="lead" data-en="Principal investigator on multi-year competitive grants from Taiwan's National Science and Technology Council (NSTC / MOST)." data-zh="主持國科會（NSTC／MOST）多年期競爭型研究計畫。">主持國科會（NSTC／MOST）多年期競爭型研究計畫。</p>
+    <div class="stack">
+      <div class="item"><span class="yr">2025</span><div class="txt"
+        data-en="Touch your heart, or scare off your donation? Comparing AI and human spokespersons in fear-appeal donation advertising. Three-year project, NSTC."
+        data-zh="打動您的心，還是嚇退您的捐款？AI 與人類發言人對恐懼訴求捐款廣告效果的比較。三年期計畫，國科會。">打動您的心，還是嚇退您的捐款？AI 與人類發言人對恐懼訴求捐款廣告效果的比較。三年期計畫，國科會。</div></div>
+      <div class="item"><span class="yr">2022</span><div class="txt"
+        data-en="Partner or servant? Effects of chatbot status on loyalty-program acceptance and word-of-mouth: mediating roles of felt dominance and power-distance belief. NSTC 111-2410-H-152-031-MY3."
+        data-zh="夥伴或是僕人？聊天機器人的地位對會員忠誠方案接受度與口碑分享的影響：支配感受與權力距離信念的中介效果。NSTC 111-2410-H-152-031-MY3。">夥伴或是僕人？聊天機器人的地位對會員忠誠方案接受度與口碑分享的影響：支配感受與權力距離信念的中介效果。NSTC 111-2410-H-152-031-MY3。</div></div>
+      <div class="item"><span class="yr">2020</span><div class="txt"
+        data-en="Effects of smartphone AI assistant anthropomorphism on service satisfaction and forgiveness of service failure: mediating roles of psychological ownership and attribution, moderated by relationship norms. MOST 109-2410-H-152-033-MY2."
+        data-zh="智慧型手機 AI 助理的擬人化程度對消費者服務滿意度與服務失敗原諒的影響：心理所有權及歸因的中介效果與關係規範的調節效果。MOST 109-2410-H-152-033-MY2。">智慧型手機 AI 助理的擬人化程度對消費者服務滿意度與服務失敗原諒的影響：心理所有權及歸因的中介效果與關係規範的調節效果。MOST 109-2410-H-152-033-MY2。</div></div>
+      <div class="item"><span class="yr">2019</span><div class="txt"
+        data-en="Effects of heuristic arguments on consumer elaboration and brand extension. MOST 108-2410-H-036-001."
+        data-zh="簡則論點對消費者思考推敲程度及品牌延伸的影響效果。MOST 108-2410-H-036-001。">簡則論點對消費者思考推敲程度及品牌延伸的影響效果。MOST 108-2410-H-036-001。</div></div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section class="block reveal" id="awards">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 data-en="Awards &amp; Honors" data-zh="獲獎與榮譽">獲獎與榮譽</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="stack">
+      <!-- AWARDS: add more items in this pattern:
+           <div class="item"><span class="yr">2024</span><div class="txt"
+             data-en="English award name, granting body."
+             data-zh="中文獎項名稱，頒獎單位。">中文獎項名稱，頒獎單位。</div></div>
+      -->
+      <div class="item"><span class="yr">2025</span><div class="txt"
+        data-en="Outstanding Research Award (AY 114), College of Management, National Taiwan University of Science and Technology."
+        data-zh="114 學年度優良研究獎，國立臺灣科技大學管理學院。">114 學年度優良研究獎，國立臺灣科技大學管理學院。</div></div>
+      <div class="item"><span class="yr">—</span><div class="txt">
+        <a href="https://www.management.ntust.edu.tw/p/406-1031-149577,r7.php?Lang=zh-tw" target="_blank" rel="noopener" data-en="College of Management honors page →" data-zh="管理學院榮譽榜 →">管理學院榮譽榜 →</a>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- INDUSTRY -->
+  <section class="block reveal" id="industry">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 data-en="Industry &amp; Consulting" data-zh="產學計畫">產學計畫</h2>
+      <span class="rule"></span>
+    </div>
+    <p class="lead" data-en="Applied projects with firms and public agencies on digital transformation, data analytics, and smart manufacturing." data-zh="與企業及公部門合作之產學計畫，涵蓋數位轉型、數據分析與智慧製造。">與企業及公部門合作之產學計畫，涵蓋數位轉型、數據分析與智慧製造。</p>
+    <div class="stack">
+      <div class="item"><span class="yr">2025</span><div class="txt" data-en="Impact analysis of the Cloud-Era Commercial District Digital Transformation Program. Computer Software & Information Association." data-zh="雲世代商圈數位轉型計畫成果效應分析。中華民國軟體資訊協會。">雲世代商圈數位轉型計畫成果效應分析。中華民國軟體資訊協會。</div></div>
+      <div class="item"><span class="yr">2025</span><div class="txt" data-en="Space-industry supply chain & networking-industry rising-star program. Taipei Computer Association." data-zh="太空產業供應鏈暨網通產業新星飛揚計畫。台北市商業電腦同業公會。">太空產業供應鏈暨網通產業新星飛揚計畫。台北市商業電腦同業公會。</div></div>
+      <div class="item"><span class="yr">2025</span><div class="txt" data-en="User behavior & data application study for the National Cultural Memory Bank. Institute for Information Industry." data-zh="國家文化記憶庫使用者行為與數據應用研究計畫。財團法人資訊工業策進會。">國家文化記憶庫使用者行為與數據應用研究計畫。財團法人資訊工業策進會。</div></div>
+      <div class="item"><span class="yr">2024</span><div class="txt" data-en="Quantitative impact analysis of the Taiwan Cloud Marketplace. Computer Software & Information Association." data-zh="臺灣雲市集成效量化分析報告。中華民國軟體資訊協會。">臺灣雲市集成效量化分析報告。中華民國軟體資訊協會。</div></div>
+      <div class="item"><span class="yr">2022–24</span><div class="txt" data-en="Data analytics & smart manufacturing (I–III). Zhiju Technology." data-zh="數據分析暨智慧製造（一～三）。智炬科技股份有限公司。">數據分析暨智慧製造（一～三）。智炬科技股份有限公司。</div></div>
+      <div class="item"><span class="yr">2022–24</span><div class="txt" data-en="Data analytics & management-talent development program (I–III). Tatung System Technologies." data-zh="數據分析暨管理人才培育計畫（一～三）。大同世界科技股份有限公司。">數據分析暨管理人才培育計畫（一～三）。大同世界科技股份有限公司。</div></div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="block reveal" id="teaching">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 data-en="Teaching" data-zh="教學">教學</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="courses">
+      <div class="course"><div class="cn" data-en="Service Technology & Experiential Marketing" data-zh="服務科技與體驗行銷">服務科技與體驗行銷</div></div>
+      <div class="course"><div class="cn" data-en="Seminar on Digital Transformation & Brand Communication" data-zh="數位轉型與品牌傳播專題">數位轉型與品牌傳播專題</div></div>
+      <div class="course"><div class="cn" data-en="Big Data Marketing" data-zh="大數據行銷">大數據行銷</div></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="block reveal" id="experience">
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2 data-en="Experience" data-zh="學歷 / 經歷">學歷 / 經歷</h2>
+      <span class="rule"></span>
+    </div>
+    <ul class="exp">
+      <li data-en="Associate / Assistant Professor, Dept. of Social & Regional Development, National Taipei University of Education" data-zh="國立臺北教育大學 社會與區域發展學系 副教授 / 助理教授">國立臺北教育大學 社會與區域發展學系 副教授 / 助理教授</li>
+      <li data-en="Section Chief (concurrent), Student Assistance Division, National Taipei University of Education" data-zh="國立臺北教育大學 生輔組組長（兼任）">國立臺北教育大學 生輔組組長（兼任）</li>
+      <li data-en="Instructor, SME Succession &lsquo;N-Generation&rsquo; Program, Small &amp; Medium Enterprise Administration" data-zh="中小企業處 接班傳承 N 世代計畫 講師">中小企業處 接班傳承 N 世代計畫 講師</li>
+      <li data-en="Instructor, Metal Industry Digital Transformation Workshop, Industrial Development Administration, MOEA" data-zh="經濟部產業發展署 金屬產業數位轉型工作坊 講師">經濟部產業發展署 金屬產業數位轉型工作坊 講師</li>
+      <li data-en="Instructor, Enterprise AI Seed Training Camp, Institute for Information Industry" data-zh="資策會 企業 AI 種子培訓營 講師">資策會 企業 AI 種子培訓營 講師</li>
+      <li data-en="Assistant Professor, Dept. of Business Management, Tatung University" data-zh="大同大學 事業經營系 助理教授">大同大學 事業經營系 助理教授</li>
+      <li data-en="Big Data Consultant, Zhiju Technology" data-zh="智炬科技 大數據顧問">智炬科技 大數據顧問</li>
+      <li data-en="Big Data Consultant & Special Assistant to the Chairman, Tatung System Technologies" data-zh="大同世界科技 大數據顧問 / 董事長特助">大同世界科技 大數據顧問 / 董事長特助</li>
+      <li data-en="Special Assistant to the General Manager, Linghang Digital International" data-zh="領航數位國際 總經理特助">領航數位國際 總經理特助</li>
+      <li data-en="Section Manager, Wei Chuan Foods Corporation" data-zh="味全食品工業 課長">味全食品工業 課長</li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fname" data-en="Li-Keng Cheng" data-zh="成力庚">成力庚</div>
+      <div class="fmeta" data-en="Dept. of Business Administration, NTUST · MA-508-1 · lkcheng@mail.ntust.edu.tw" data-zh="國立臺灣科技大學 企業管理系 · MA-508-1 · lkcheng@mail.ntust.edu.tw">國立臺灣科技大學 企業管理系 · MA-508-1 · lkcheng@mail.ntust.edu.tw</div>
+    </div>
+    <div class="copy">© <span id="yr"></span> Li-Keng Cheng</div>
+  </div>
+</footer>
+
+<script>
+  var LANG = "zh";
+  function setLang(l){
+    LANG = l;
+    var els = document.querySelectorAll("[data-en]");
+    for(var i=0;i<els.length;i++){
+      var v = els[i].getAttribute("data-"+l);
+      if(v !== null) els[i].textContent = v;
+    }
+    document.documentElement.setAttribute("lang", l === "zh" ? "zh-Hant" : "en");
+    document.getElementById("btn-zh").setAttribute("aria-pressed", l==="zh");
+    document.getElementById("btn-en").setAttribute("aria-pressed", l==="en");
+  }
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // scroll reveal
+  (function(){
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var items = document.querySelectorAll(".reveal");
+    if(reduce || !("IntersectionObserver" in window)){
+      items.forEach(function(n){n.classList.add("in");});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold:0.08, rootMargin:"0px 0px -40px 0px"});
+    items.forEach(function(n){io.observe(n);});
+  })();
+</script>
+</body>
+</html>
